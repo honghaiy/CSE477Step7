@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8d788227-7bee-4a1f-a17c-c28c037d3653" name="webdev-step7" url="http://webdev.cse.msu.edu/~adanalig/step7">
+        <fileTransfer host="arctic.cse.msu.edu" port="22" rootFolder="/user/adanalig/classweb/step7" accessType="SFTP" password="dfeddfe5dfe1dfd9dfdfdf93df9edf81df8fdf8c" username="adanalig">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
