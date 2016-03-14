@@ -1,3 +1,8 @@
+<?php
+require 'lib/site.inc.php';
+$view = new Felis\StaffView();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +37,7 @@ system.</p>
 	<p><a href="users.php"><img src="images/sleeping200.png" width="282" height="200" alt="Sleepy Cat"></a> <a href="users.php">Users</a></p>
 </div>
 
-<footer>
-	<p>Copyright © 2016 Felis Investigations, Inc. All rights reserved.</p>
-</footer>
+<?php echo $view->footer(); ?>
 
 </div>
 
