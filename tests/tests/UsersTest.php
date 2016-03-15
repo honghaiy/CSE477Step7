@@ -29,15 +29,28 @@ class EmptyDBTest extends \PHPUnit_Extensions_Database_TestCase
      */
     public function getDataSet()
     {
-        return new PHPUnit_Extensions_Database_DataSet_DefaultDataSet();
-
-        //return $this->createFlatXMLDataSet(dirname(__FILE__) . 
-		//	'/db/users.xml');
+        return $this->createFlatXMLDataSet(dirname(__FILE__) . '/db/user.xml');
     }
 
     public function test_construct() {
         $users = new Felis\Users(self::$site);
         $this->assertInstanceOf('Felis\Users', $users);
+    }
+
+    public function test_login() {
+        $users = new Felis\Users(self::$site);
+
+        // Test a valid login based on user ID
+        $user = $users->login("dudess@dude.com", "87654321");
+        $this->assertInstanceOf('Felis\User', $user);
+
+        // Test a valid login based on email address
+        $user = $users->login("cbowen@cse.msu.edu", "super477");
+        $this->assertInstanceOf('Felis\User', $user);
+
+        // Test a failed login
+        $user = $users->login("dudess@dude.com", "wrongpw");
+        $this->assertNull($user);
     }
 	
 }
