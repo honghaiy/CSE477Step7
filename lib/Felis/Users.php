@@ -51,7 +51,7 @@ SQL;
     public function get($id) {
         $sql =<<<SQL
 SELECT * from $this->tableName
-where id=?
+where id=$id
 SQL;
 
         $pdo = $this->pdo();

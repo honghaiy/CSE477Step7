@@ -12,6 +12,6 @@ return function(Felis\Site $site) {
     $site->setRoot('/~adanalig/step7');
     $site->dbConfigure('mysql:host=mysql-user.cse.msu.edu;dbname=adanalig',
         'adanalig',       // Database user
-        'password',     // Database password
+        'enYueZpfRbS5deDJ',     // Database password
         '');            // Table prefix
 };
