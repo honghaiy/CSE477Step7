@@ -51,6 +51,31 @@ class EmptyDBTest extends \PHPUnit_Extensions_Database_TestCase
         // Test a failed login
         $user = $users->login("dudess@dude.com", "wrongpw");
         $this->assertNull($user);
+
+        $user = $users->login("cbowen@cse.msu.edu", "super477");
+        $joinedValue = $user->getJoined();
+        $user = $users->login("cbowen@cse.msu.edu", "super477");
+        $this->assertEquals($user->getJoined(), $joinedValue);
+    }
+
+    public function test_get() {
+        $users = new Felis\Users(self::$site);
+
+        // Test a valid login based on user ID
+        $user = $users->get("7");
+        $this->assertInstanceOf('Felis\User', $user);
+
+        // Test a valid login based on user ID
+        $user = $users->get("8");
+        $this->assertInstanceOf('Felis\User', $user);
+
+        // Test a valid login based on user ID
+        $user = $users->get("9");
+        $this->assertInstanceOf('Felis\User', $user);
+
+        $user = $users->login("cbowen@cse.msu.edu", "super477");
+        $this->assertEquals($users->get(8), $user);
+
     }
 	
 }

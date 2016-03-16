@@ -1,4 +1,5 @@
 <?php
+$open = true;
 require 'lib/site.inc.php';
 $view = new Felis\View();
 $view->setTitle('Felis Investigations');
@@ -13,7 +14,7 @@ $view->setTitle('Felis Investigations');
 <div class="login">
 <?php echo $view->header(); ?>
 
-<form>
+<form method="post" action="post/login.php">
 	<fieldset>
 		<legend>Login</legend>
 		<p>

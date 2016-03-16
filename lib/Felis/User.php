@@ -11,6 +11,9 @@ namespace Felis;
 
 class User
 {
+    const SESSION_NAME = 'user';
+
+
     /**
      * Constructor
      * @param $row Row from the user table in the database
