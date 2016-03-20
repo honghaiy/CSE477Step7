@@ -1,6 +1,10 @@
 <?php
 require 'lib/site.inc.php';
 $view = new Felis\StaffView();
+if(!$view->protect($site, $user)) {
+	header("location: " . $view->getProtectRedirect());
+	exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +23,7 @@ $view = new Felis\StaffView();
 		<li><a href="./">The Felis Agency</a></li>
 	</ul>
 	<ul class="right">
-		<li><a href="./">Log out</a></li>
+		<li><a href="post/logout.php">Log out</a></li>
 	</ul>
 </nav>
 

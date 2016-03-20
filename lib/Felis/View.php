@@ -98,6 +98,34 @@ HTML;
         return '';
     }
 
+    /**
+     * Protect a page for staff only access
+     *
+     * If access is denied, call getProtectRedirect
+     * for the redirect page
+     * @param $site The Site object
+     * @param $user The current User object
+     * @return bool true if page is accessible
+     */
+    public function protect($site, $user) {
+        if($user->isStaff()) {
+            return true;
+        }
+
+        $this->protectRedirect = $site->getRoot() . "/";
+        return false;
+    }
+
+    /**
+     * Get any redirect page
+     */
+    public function getProtectRedirect() {
+        return $this->protectRedirect;
+    }
+
+    /// Page protection redirect
+    private $protectRedirect = null;
+
     private $title = "";	///< The page title
     private $links = array();	///< Links to add to the nav bar
 }

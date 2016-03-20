@@ -64,4 +64,27 @@ SQL;
 
         return new User($statement->fetch(\PDO::FETCH_ASSOC));
     }
+
+    /**
+     * Modify a user record based on the contents of a User object
+     * @param User $user User object for object with modified data
+     * @return true if successful, false if failed or user does not exist
+     */
+    public function update(User $user) {
+        $sql =<<<SQL
+UPDATE $this->tableName
+SET name=$user->getName(), phone=$user->getPhone(), email=$user->getEmail(), address=$user->getAddress(), notes=$user->getRoles(), role=$user->getRole()
+where id=$user->getId()
+SQL;
+
+        $pdo = $this->pdo();
+        $statement = $pdo->prepare($sql);
+
+        $statement->execute(array($user));
+        if($statement->rowCount() === 0) {
+            return null;
+        }
+
+        return new User($statement->fetch(\PDO::FETCH_ASSOC));
+    }
 }
